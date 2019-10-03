@@ -10,7 +10,7 @@ import java.net.InetAddress;
 public class Main {
     public static void main(String[] args) {
         try{
-            final int PORT = 8000;
+            final int PORT = 6000;
             DatagramSocket ds = new DatagramSocket();
             InetAddress addr = InetAddress.getByName("10.2.8.162");
             String s;
@@ -23,6 +23,7 @@ public class Main {
                 DatagramPacket dp = new DatagramPacket(s.getBytes(), s.length(), addr, PORT);
                 ds.send(dp);
             }while (!s.equals(""));
+            //關閉
             ds.close();
         }catch (Exception e){}
 
